@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Snake</title>
+    <link href="snake.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>HTML + JS Snake</h1>
+    <table id="board"></table>
+  </body>
+
+  <script src="js/board.js"></script>
+  <script>
+    let board = createBoard();
+    document.getElementById("board").innerHTML = board.render();
+  </script>
+</html>
