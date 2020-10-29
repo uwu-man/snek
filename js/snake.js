@@ -2,6 +2,7 @@ let createSnake = (board, startSize = 3) => {
   let snake = {
     position: { x: 0, y: 0 },
     velocity: { x: 0, y: 0 },
+    tail: [],
     size: startSize,
   };
 
@@ -18,7 +19,15 @@ let createSnake = (board, startSize = 3) => {
     snake.velocity[randomAxis] = distanceFromAxis < distanceToAxisEnd ? 1 : -1;
     snake.position = startPosition;
 
-    console.log(snake.velocity);
+    //set tail
+    let stillAxis = randomAxis == "x" ? "y" : "x";
+    for (let i = 1; i < snake.size + 1; i++) {
+      let tailSegment = {};
+      tailSegment[randomAxis] =
+        startPosition[randomAxis] + i * -snake.velocity[randomAxis];
+      tailSegment[stillAxis] = startPosition[stillAxis];
+      snake.tail.push(tailSegment);
+    }
 
     board.renderSnake(snake);
   };

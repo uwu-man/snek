@@ -11,3 +11,7 @@ td {
 .snakeHead {
   background-color: blueviolet;
 }
+
+.snakeTail {
+  background-color: blue;
+}
