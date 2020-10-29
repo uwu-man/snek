@@ -49,5 +49,9 @@ let createSnake = (board, startSize = 3) => {
     snake.position.x < 0 ||
     snake.position.y < 0;
 
+  snake.changeDirection = (newVelocity) => {
+    snake.velocity = newVelocity;
+  };
+
   return snake;
 };

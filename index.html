@@ -15,6 +15,7 @@
   <script src="js/board.js"></script>
   <script src="js/snake.js"></script>
   <script src="js/game.js"></script>
+  <script src="js/controls.js"></script>
 
   <script>
     let board = createBoard(document);
@@ -24,6 +25,7 @@
     board.render();
     snake.spawn();
 
+    setupControls(snake);
     game.start(snake, board);
   </script>
 </html>
