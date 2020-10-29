@@ -8,16 +8,17 @@ let createSnake = (board, startSize = 3) => {
 
   snake.spawn = () => {
     let startPosition = {
-      x: Math.floor(Math.random() * board.size),
-      y: Math.floor(Math.random() * board.size),
+      x: random.int(snake.size, board.size - snake.size),
+      y: random.int(snake.size, board.size - snake.size),
     };
+    snake.position = startPosition;
 
-    let randomAxis = Math.random() > 0.5 ? "x" : "y";
+    //velocity
+    let randomAxis = random.coinFlip("x", "y");
     let distanceFromAxis = startPosition[randomAxis];
     let distanceToAxisEnd = board.size - startPosition[randomAxis];
 
     snake.velocity[randomAxis] = distanceFromAxis < distanceToAxisEnd ? 1 : -1;
-    snake.position = startPosition;
 
     //set tail
     let stillAxis = randomAxis == "x" ? "y" : "x";
