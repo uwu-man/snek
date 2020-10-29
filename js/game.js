@@ -1,17 +1,28 @@
 let createGame = (config = { speed: 100 }) => {
   let game = {};
-  let started = false;
-  game.start = (snake, board) => {
-    if (started) return;
-    started = true;
+  let running = false;
+  let interval;
 
-    setInterval(() => game.gameStep(snake, board), config.speed);
+  game.start = (snake, board) => {
+    if (running) return;
+    running = true;
+
+    interval = setInterval(() => game.gameStep(snake, board), config.speed);
   };
 
   game.gameStep = (snake, board) => {
     snake.forward();
+
+    if (snake.collided(board)) return game.over();
+
     board.render();
     board.renderSnake(snake);
+  };
+
+  game.over = () => {
+    console.log("game over");
+    running = false;
+    clearInterval(interval);
   };
 
   return game;

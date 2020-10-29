@@ -43,5 +43,11 @@ let createSnake = (board, startSize = 3) => {
     snake.position.y += snake.velocity.y;
   };
 
+  snake.collided = (board) =>
+    snake.position.x >= board.size ||
+    snake.position.y >= board.size ||
+    snake.position.x < 0 ||
+    snake.position.y < 0;
+
   return snake;
 };
