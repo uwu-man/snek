@@ -1,5 +1,7 @@
-let createBoard = (size = 20) => {
-  let board = {};
+let createBoard = (document, size = 20) => {
+  let board = {
+    size: size,
+  };
   board.render = () => {
     let rendered = "";
     for (let x = 0; x < size; x++) {
@@ -8,7 +10,15 @@ let createBoard = (size = 20) => {
         rendered += `<td id="${y}:${x}"> </td>`;
       }
     }
-    return rendered;
+    document.getElementById("board").innerHTML = rendered;
+  };
+
+  board.renderSnake = (snake) => {
+    let headSquare = document.getElementById(
+      `${snake.position.x}:${snake.position.y}`
+    );
+
+    headSquare.className = "snakeHead";
   };
   return board;
 };

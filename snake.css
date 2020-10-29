@@ -7,3 +7,7 @@ td {
   width: 20px;
   height: 20px;
 }
+
+.snakeHead {
+  background-color: blueviolet;
+}

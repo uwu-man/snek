@@ -12,8 +12,12 @@
   </body>
 
   <script src="js/board.js"></script>
+  <script src="js/snake.js"></script>
+
   <script>
-    let board = createBoard();
-    document.getElementById("board").innerHTML = board.render();
+    let board = createBoard(document);
+    let snake = createSnake(board);
+    board.render();
+    snake.spawn();
   </script>
 </html>
