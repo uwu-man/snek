@@ -14,11 +14,16 @@
   <script src="js/util.js"></script>
   <script src="js/board.js"></script>
   <script src="js/snake.js"></script>
+  <script src="js/game.js"></script>
 
   <script>
     let board = createBoard(document);
     let snake = createSnake(board);
+    let game = createGame();
+
     board.render();
     snake.spawn();
+
+    game.start(snake, board);
   </script>
 </html>

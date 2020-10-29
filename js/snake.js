@@ -33,5 +33,15 @@ let createSnake = (board, startSize = 3) => {
     board.renderSnake(snake);
   };
 
+  snake.forward = () => {
+    snake.tail.forEach((segment) => {
+      segment.x += snake.velocity.x;
+      segment.y += snake.velocity.y;
+    });
+
+    snake.position.x += snake.velocity.x;
+    snake.position.y += snake.velocity.y;
+  };
+
   return snake;
 };
