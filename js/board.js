@@ -13,6 +13,13 @@ let createBoard = (document, size = 20) => {
     document.getElementById("board").innerHTML = rendered;
   };
 
+  board.renderFood = (food) => {
+    let foodSquare = document.getElementById(
+      `${food['x']}:${food['y']}`
+    );
+    foodSquare.className = "foodPosition";
+  }
+
   board.renderSnake = (snake) => {
     let headSquare = document.getElementById(
       `${snake.position.x}:${snake.position.y}`
