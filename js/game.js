@@ -21,10 +21,11 @@ let createGame = (config = { speed: 100 }) => {
       };
     };
 
-    if (food['x'] == 0){
+    if (food['z']){
       food = {
         x: Math.round(Math.random()*(board.size-1)),
         y: Math.round(Math.random()*(board.size-1)),
+        z: false,
       };
     };
 
@@ -38,7 +39,7 @@ let createGame = (config = { speed: 100 }) => {
         x: snake.tail[snake.size-2].x - snake.velocity.x,
         y: snake.tail[snake.size-2].y - snake.velocity.y,
       }
-      food = {x:0};
+      food = {z: true};
       };
     } 
     board.renderSnake(snake);

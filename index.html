@@ -18,14 +18,16 @@
   <script src="js/controls.js"></script>
 
   <script>
+
     let board = createBoard(document);
     let snake = createSnake(board);
     let game = createGame();
-
     board.render();
     snake.spawn();
-
     setupControls(snake);
+    let food = {x:0, y:0, z: true};
+
     game.start(snake, board);
+
   </script>
 </html>
